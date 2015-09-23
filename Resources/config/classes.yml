@@ -1,0 +1,3 @@
+parameters:
+    grossum.extended.type.dependent_filtered_entity.class: Grossum\ExtendedFormTypeBundle\Form\Type\DependentFilteredEntityType
+    grossum.extended.dependent_entity_loader.class: Grossum\ExtendedFormTypeBundle\Services\DependentEntityLoader

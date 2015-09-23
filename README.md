@@ -1,1 +1,1 @@
-# CustomFormTypeBundle
+# ExtendedFormTypeBundle
