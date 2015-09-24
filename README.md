@@ -42,3 +42,99 @@ class AppKernel extends Kernel
     // ...
 }
 ```
+
+
+Step 3: Configure the Bundle
+----------------------------
+
+Add routing to your project in `app/config/routing.yml`:
+
+```
+// app/config/routing.yml
+
+# Routing Configuration Example
+
+grossum_extended_form_type:
+    resource: "@GrossumExtendedFormTypeBundle/Resources/config/routing.yml"
+    prefix:   /
+
+```
+
+Register twig form template in `app/config/config.yml`
+
+```
+// app/config/config.yml
+
+# Twig Configuration Example
+
+twig:
+    // ...
+    form:
+        resources:
+            // ...
+            - 'GrossumExtendedFormTypeBundle::dependent_filtered_entity.html.twig'
+```
+
+
+Enable bundle for your entity  in `app/config/config.yml`:
+
+```
+// app/config/config.yml
+
+# Entity Configuration Example
+
+grossum_extended_form_type:
+    dependent_filtered_entities:
+        test_type:
+            class: Your\Bundle\Entity\EntityName
+            parent_property: test 
+            property: name
+            no_result_msg: 'No type found'
+            order_property: name 
+            order_direction: ASC
+```
+
+
+Step 4: Usage
+-------------
+
+```php
+
+<?php
+
+// ...
+
+class TestAdmin extends Admin
+{
+
+    /**
+     * Fields to be shown on create/edit forms
+     *
+     * @param FormMapper $formMapper
+     */
+    protected function configureFormFields(FormMapper $formMapper)
+    {
+        $formMapper
+            
+            // ...
+            
+            ->add(
+                'yourType',
+                'grossum_dependent_filtered_entity',
+                [
+                    'entity_alias' => 'your_alias',
+                    'empty_value'  => 'Select some value',
+                    'parent_field' => 'test',
+                    'label'        => 'Your label',
+                ]
+            )
+            
+            // ...
+           
+            ->end();
+    }
+    
+     // ...
+    
+}
+```
