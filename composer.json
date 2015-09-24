@@ -1,0 +1,32 @@
+{
+  "name": "grossum/extended-form-type",
+  "description": "Extended form type bundle",
+  "type": "symfony-bundle",
+  "authors": [
+    {
+      "name": "Alexey Verkeenko",
+      "email": "averkeenko@grossum.com"
+    },
+    {
+      "name": "Myroslav Berlad",
+      "email": "mberlad@grossum.com"
+    }
+  ],
+  "license": [
+    "MIT"
+  ],
+  "require": {
+    "php": ">=5.4",
+    "symfony/framework-bundle": "~2.1"
+  },
+  "autoload": {
+    "psr-4": {
+      "Grossum\\ExtendedFormTypeBundle\\": ""
+    }
+  },
+  "extra": {
+    "branch-alias": {
+      "dev-master": "0.1.x-dev"
+    }
+  }
+}
