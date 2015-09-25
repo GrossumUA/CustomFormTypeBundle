@@ -1,0 +1,10 @@
+{% if results|length %}
+    {% if emptyValue != false %}
+        <option value="">{{ emptyValue|trans }}</option>
+    {% endif %}
+    {% for result in results %}
+        <option value="{{ result.id }}">{{ property ? attribute(result, property) : result }}</option>
+    {% endfor %}
+{% else %}
+    <option value="">{{ noResultMsg|trans }}</option>
+{% endif %}
