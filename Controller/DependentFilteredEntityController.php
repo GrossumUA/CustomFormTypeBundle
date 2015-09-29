@@ -2,21 +2,27 @@
 
 namespace Grossum\ExtendedFormTypeBundle\Controller;
 
-use Grossum\ExtendedFormTypeBundle\Services\DependentEntityLoader;
 use Symfony\Bundle\FrameworkBundle\Controller\Controller;
 use Symfony\Component\HttpFoundation\Request;
+use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\Security\Core\Authorization\Voter\AuthenticatedVoter;
 use Symfony\Component\Security\Core\Exception\AccessDeniedException;
 
-/**
- * Class DependentFilteredEntityController
- * @package Grossum\ExtendedFormTypeBundle\Controller
- */
+use Grossum\ExtendedFormTypeBundle\Services\DependentEntityLoader;
+
 class DependentFilteredEntityController extends Controller
 {
+    /**
+     * @param Request $request
+     * @return Response
+     */
     public function getOptionsAction(Request $request)
     {
         $entities = $this->container->getParameter('grossum.dependent_filtered_entities');
+        if (!array_key_exists($request->get('entity_alias'), $entities)) {
+            throw $this->createAccessDeniedException('Incorrect entity_alias value');
+        }
+
         $entityInf = $entities[$request->get('entity_alias')];
 
         if ($entityInf['role'] !== AuthenticatedVoter::IS_AUTHENTICATED_ANONYMOUSLY) {

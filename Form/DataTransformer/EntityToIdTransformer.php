@@ -6,21 +6,24 @@ use Symfony\Component\Form\DataTransformerInterface;
 use Symfony\Component\Form\Exception\UnexpectedTypeException;
 use Symfony\Component\Form\Exception\TransformationFailedException;
 use Symfony\Component\Form\Exception\InvalidArgumentException;
+
+use Doctrine\ORM\UnitOfWork;
 use Doctrine\ORM\EntityManager;
 
-/**
- * Class EntityToIdTransformer
- * @package Grossum\ExtendedFormTypeBundle\Form\DataTransformer
- */
 class EntityToIdTransformer implements DataTransformerInterface
 {
+    /** @var EntityManager */
     protected $em;
+
+    /** @var string */
     protected $class;
+
+    /** @var UnitOfWork */
     protected $unitOfWork;
 
     /**
      * @param EntityManager $em
-     * @param $class
+     * @param string        $class
      */
     public function __construct(EntityManager $em, $class)
     {

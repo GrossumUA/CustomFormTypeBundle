@@ -7,10 +7,6 @@ use Symfony\Component\Config\FileLocator;
 use Symfony\Component\HttpKernel\DependencyInjection\Extension;
 use Symfony\Component\DependencyInjection\Loader;
 
-/**
- * Class GrossumExtendedFormTypeExtension
- * @package Grossum\ExtendedFormTypeBundle\DependencyInjection
- */
 class GrossumExtendedFormTypeExtension extends Extension
 {
     /**
