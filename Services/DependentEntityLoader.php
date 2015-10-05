@@ -8,7 +8,7 @@ use Doctrine\ORM\QueryBuilder;
 
 class DependentEntityLoader
 {
-    /** @var Registry $doctrine */
+    /** @var Registry */
     private $doctrine;
 
     /**
@@ -21,7 +21,7 @@ class DependentEntityLoader
 
     /**
      * @param array $entityInf
-     * @param int $parentId
+     * @param int   $parentId
      * @return array
      */
     public function getEntities($entityInf, $parentId)
@@ -44,8 +44,8 @@ class DependentEntityLoader
 
     /**
      * @param EntityRepository $repository
-     * @param QueryBuilder $queryBuilder
-     * @param array $entityInf
+     * @param QueryBuilder     $queryBuilder
+     * @param array            $entityInf
      */
     private function setCallback(
         EntityRepository $repository,
@@ -64,6 +64,6 @@ class DependentEntityLoader
                 )
             );
         }
-        $repository->$entityInf['callback']($queryBuilder);
+        $repository->{$entityInf['callback']}($queryBuilder);
     }
 }

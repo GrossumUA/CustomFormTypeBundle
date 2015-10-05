@@ -6,10 +6,6 @@ use Symfony\Component\Config\Definition\Builder\TreeBuilder;
 use Symfony\Component\Config\Definition\ConfigurationInterface;
 use Symfony\Component\Security\Core\Authorization\Voter\AuthenticatedVoter;
 
-/**
- * Class Configuration
- * @package Grossum\ExtendedFormTypeBundle\DependencyInjection
- */
 class Configuration implements ConfigurationInterface
 {
     /**
