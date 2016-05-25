@@ -1,3 +1,8 @@
+Extended Form Type Bundle
+=========================
+
+[![Latest Stable Version](https://poser.pugx.org/grossum/extended-form-type/v/stable)](https://packagist.org/packages/grossum/extended-form-type) [![Total Downloads](https://poser.pugx.org/grossum/extended-form-type/downloads)](https://packagist.org/packages/grossum/extended-form-type) [![Latest Unstable Version](https://poser.pugx.org/grossum/extended-form-type/v/unstable)](https://packagist.org/packages/grossum/extended-form-type) [![License](https://poser.pugx.org/grossum/extended-form-type/license)](https://packagist.org/packages/grossum/extended-form-type)
+
 Installation
 ============
 
