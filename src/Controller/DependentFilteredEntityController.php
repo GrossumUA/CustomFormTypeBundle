@@ -39,7 +39,7 @@ class DependentFilteredEntityController extends Controller
         );
 
         return $this->render(
-            'GrossumExtendedFormTypeBundle:blocks:options_block.html.twig',
+            '@GrossumExtendedFormType/blocks/options_block.html.twig',
             [
                 'results'     => $results,
                 'emptyValue'  => $request->get('empty_value'),
