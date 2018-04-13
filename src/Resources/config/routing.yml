@@ -1,3 +1,3 @@
 grossum_dependent_filtered_entity:
-    pattern: /grossum_dependent_filtered_entity
+    path: /grossum_dependent_filtered_entity
     defaults: { _controller: GrossumExtendedFormTypeBundle:DependentFilteredEntity:getOptions }
