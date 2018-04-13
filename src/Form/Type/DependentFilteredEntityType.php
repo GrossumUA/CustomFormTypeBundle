@@ -3,10 +3,11 @@
 namespace Grossum\ExtendedFormTypeBundle\Form\Type;
 
 use Symfony\Component\Form\AbstractType;
+use Symfony\Component\Form\Extension\Core\Type\FormType;
 use Symfony\Component\Form\FormBuilderInterface;
 use Symfony\Component\Form\FormInterface;
 use Symfony\Component\Form\FormView;
-use Symfony\Component\OptionsResolver\OptionsResolverInterface;
+use Symfony\Component\OptionsResolver\OptionsResolver;
 
 use Doctrine\Bundle\DoctrineBundle\Registry;
 use Doctrine\ORM\EntityManager;
@@ -32,9 +33,9 @@ class DependentFilteredEntityType extends AbstractType
     }
 
     /**
-     * @param OptionsResolverInterface $resolver
+     * @param OptionsResolver $resolver
      */
-    public function setDefaultOptions(OptionsResolverInterface $resolver)
+    public function configureOptions(OptionsResolver $resolver)
     {
         $resolver->setDefaults(
             [
@@ -90,7 +91,15 @@ class DependentFilteredEntityType extends AbstractType
      */
     public function getParent()
     {
-        return 'form';
+        return FormType::class;
+    }
+
+    /**
+     * @return string
+     */
+    public function getBlockPrefix()
+    {
+        return 'grossum_dependent_filtered_entity';
     }
 
     /**
@@ -98,6 +107,6 @@ class DependentFilteredEntityType extends AbstractType
      */
     public function getName()
     {
-        return 'grossum_dependent_filtered_entity';
+        return $this->getBlockPrefix();
     }
 }

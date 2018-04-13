@@ -1,0 +1,13 @@
+services:
+    grossum_extended_dependent_filtered_entity:
+        class: '%grossum.extended.type.dependent_filtered_entity.class%'
+        arguments:
+            - '@doctrine'
+            - '%grossum.dependent_filtered_entities%'
+        tags:
+            - { name: form.type, alias: grossum_dependent_filtered_entity }
+
+    grossum_extended_dependent_entity_loader:
+        class: '%grossum.extended.dependent_entity_loader.class%'
+        arguments:
+            - '@doctrine'
